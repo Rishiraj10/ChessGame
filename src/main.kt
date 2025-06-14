@@ -34,14 +34,12 @@ class MyScene : PixelatedScene(128*8, 128*8, sceneSmoothing = true) {
         val bgs = images.run{ listOf(square_brown_dark, square_brown_light)}
         for (y in 0 until 8) {
             for (x in 0 until 8){
-                image(bgs[(x+y).isOdd.toInt()]).xy(128*x, 128*y)
+                image(bgs[(x+y).isEven.toInt()]).xy(128*x, 128*y)
             }
         }
 
-        val board = ChessBoard()
-        board.array[0, 0] = ChessCell.Piece(ChessPieceKind.BISHOP, ChessPlayer.BLACK)
-        board.array[1, 0] = ChessCell.Piece(ChessPieceKind.KNIGHT, ChessPlayer.WHITE)
-        board.array[6, 6] = ChessCell.Piece(ChessPieceKind.KING, ChessPlayer.BLACK)
+        val board = ChessBoard.createDefault()
+
 
         representBoard(board,blacks, whites)
         //for (n in 0 until 6){

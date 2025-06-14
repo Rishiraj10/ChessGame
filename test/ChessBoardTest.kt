@@ -21,9 +21,25 @@ class ChessBoardTest {
     }
 
 
+    @Test
+    fun testDefaultBoard() {
+        assertEquals(
+            """
+                RKBQNBKR
+                PPPPPPPP
+                ........
+                ........
+                ........
+                ........
+                pppppppp
+                rkbqnbkr
+            """.trimIndent(),
+            ChessBoard.createDefault().toString()
+        )
+    }
 
     @Test
-    fun testSimpleBoard(){
+    fun testSimpleBoard() {
         val board = ChessBoard()
         board.array[0, 0] = ChessCell.Piece(ChessPieceKind.BISHOP, ChessPlayer.BLACK)
         board.array[1, 0] = ChessCell.Piece(ChessPieceKind.KNIGHT, ChessPlayer.WHITE)
@@ -42,6 +58,6 @@ class ChessBoardTest {
             """.trimIndent(),
             board.toString()
         )
-    }
 
+    }
 }
