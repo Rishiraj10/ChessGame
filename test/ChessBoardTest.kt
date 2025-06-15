@@ -1,3 +1,4 @@
+import korlibs.math.geom.*
 import kotlin.test.*
 
 
@@ -37,6 +38,19 @@ class ChessBoardTest {
             ChessBoard.createDefault().toString()
         )
     }
+
+
+    @Test
+    fun testKnightMovements() {
+        val board = ChessBoard.createDefault()
+
+        assertEquals(
+          setOf(PointInt(0, 2), PointInt(2, 2)),
+            board.availableMovements(PointInt(1, 0))
+        )
+
+    }
+
 
     @Test
     fun testSimpleBoard() {
